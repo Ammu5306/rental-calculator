@@ -1,0 +1,95 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Rental System</title>
+<style>
+body{
+  font-family: Arial;
+  background:#f4f4f4;
+  padding:20px;
+}
+.container{
+  background:white;
+  padding:20px;
+  max-width:400px;
+  margin:auto;
+  border-radius:10px;
+  box-shadow:0 0 10px #ccc;
+}
+label{
+  font-weight:bold;
+}
+input,select,button{
+  width:100%;
+  padding:8px;
+  margin:5px 0 15px;
+}
+button{
+  background:green;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+.result{
+  background:#eee;
+  padding:10px;
+  border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h2>Rental Calculator</h2>
+
+<label>Select Item</label>
+<select id="item">
+  <option value="10">Sheet</option>
+  <option value="20">Pipe</option>
+  <option value="30">Column Box</option>
+</select>
+
+<label>Quantity</label>
+<input type="number" id="q">
+
+<label>Days</label>
+<input type="number" id="d">
+
+<label>Damaged Quantity</label>
+<input type="number" id="dam">
+
+<label>Advance</label>
+<input type="number" id="adv">
+
+<button onclick="calculate()">Calculate</button>
+
+<div class="result" id="output"></div>
+
+</div>
+
+<script>
+function calculate(){
+
+let rent = +document.getElementById("item").value;
+let q = +document.getElementById("q").value || 0;
+let d = +document.getElementById("d").value || 0;
+let dam = +document.getElementById("dam").value || 0;
+let adv = +document.getElementById("adv").value || 0;
+
+let total = q * rent * d;
+let damage = dam * 100;
+let final = total + damage;
+let balance = final - adv;
+
+document.getElementById("output").innerHTML =
+"Total Rent: " + total + "<br>" +
+"Damage Cost: " + damage + "<br>" +
+"Final Amount: " + final + "<br>" +
+"Balance: " + balance;
+
+}
+</script>
+
+</body>
+</html>
