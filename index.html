@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Rental Calculator</h3>
+
+<input type="number" id="q" placeholder="Quantity"><br>
+<input type="number" id="r" placeholder="Rent per Day"><br>
+<input type="number" id="d" placeholder="Days"><br>
+<input type="number" id="dam" placeholder="Damaged Items"><br>
+<input type="number" id="dc" placeholder="Damage Charge"><br>
+<input type="number" id="a" placeholder="Advance"><br><br>
+
+<button onclick="c()">Calculate</button>
+
+<p id="o"></p>
+
+<script>
+function c(){
+let q=+document.getElementById("q").value||0;
+let r=+document.getElementById("r").value||0;
+let d=+document.getElementById("d").value||0;
+let dam=+document.getElementById("dam").value||0;
+let dc=+document.getElementById("dc").value||0;
+let a=+document.getElementById("a").value||0;
+
+let total=q*r*d;
+let damage=dam*dc;
+let final=total+damage;
+let balance=final-a;
+
+document.getElementById("o").innerHTML=
+"Total Rent: "+total+"<br>"+
+"Damage Cost: "+damage+"<br>"+
+"Final Amount: "+final+"<br>"+
+"Balance: "+balance;
+}
+</script>
+
+</body>
+</html>
